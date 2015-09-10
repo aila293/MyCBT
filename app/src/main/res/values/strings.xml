@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">MyCBT</string>
+    <string name="title_activity_main">MainActivity</string>
+
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_entry_feeling">EntryFeelingActivity</string>
+    <string name="title_activity_entry_description">Describe</string>
+    <string name="title_activity_entry_distortions">Distortions</string>
+
+
+</resources>

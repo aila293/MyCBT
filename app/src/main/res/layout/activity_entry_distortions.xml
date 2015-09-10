@@ -1,0 +1,43 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:orientation="vertical"
+    tools:context="com.liuk.mycbt.EntryDistortionsActivity">
+
+    <TextView android:text=""
+        android:layout_width="fill_parent"
+        android:id="@+id/prev_description"
+        android:layout_height="wrap_content"
+        />
+
+    <TextView android:text="What distortions do you see in these thoughts?"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:textSize="20dp"
+        />
+
+    <TextView android:text="There's supposed to be a list here but my ListAdapter to populate the list isn't working so it shows up blank"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:textSize="20dp"
+        />
+
+    <ListView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/distortion_list"
+        android:layout_gravity="center_horizontal"
+        android:layout_weight=".9" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Done"
+        android:id="@+id/to_home"
+        android:layout_gravity="right"
+        android:layout_weight=".1" />
+
+</LinearLayout>
