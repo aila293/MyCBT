@@ -19,12 +19,6 @@
         android:textSize="20dp"
         />
 
-    <TextView android:text="There's supposed to be a list here but my ListAdapter to populate the list isn't working so it shows up blank"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:textSize="20dp"
-        />
-
     <ListView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

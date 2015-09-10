@@ -31,6 +31,8 @@ public class EntryDistortionsActivity extends Activity {
         "Disqualifying the Positive", "Emotional Reasoning", "Magnifying / Minifying",
         "Catastrophizing"};
         ArrayAdapter<String> list = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, distortions);
+        ListView listView = (ListView) findViewById(R.id.distortion_list);
+        listView.setAdapter(list);
 
         Button next_button = (Button) findViewById(R.id.to_home);
         next_button.setOnClickListener(new View.OnClickListener() {
