@@ -6,6 +6,7 @@ import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -27,6 +28,17 @@ public class EntryDescriptionActivity extends Activity {
                 nextActivity(v);
             }
         });
+
+
+       final  EditText description = (EditText) findViewById(R.id.description_text);
+        description.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                description.setText("");
+                description.setOnTouchListener(null);
+                return false;
+            }
+        });
     }
 
 
@@ -38,6 +50,11 @@ public class EntryDescriptionActivity extends Activity {
         next.putExtra(EXTRA_DESCRIPTION, message);
         startActivity(next);
     }
+
+
+
+
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

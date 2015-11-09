@@ -34,6 +34,7 @@
         <activity
             android:name=".EntryFeelingActivity"
             android:label="@string/title_activity_entry_feeling"
+            android:windowSoftInputMode="adjustResize"
             android:parentActivityName=".MainActivity" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"

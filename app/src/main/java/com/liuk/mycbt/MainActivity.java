@@ -9,9 +9,8 @@ import android.view.View;
 
 public class MainActivity extends ActionBarActivity {
 
-    public void startEntry(View view){ //this signature required for OnClick attribute
+    public void startEntry(View view){
         Intent intent = new Intent(this, EntryFeelingActivity.class);
-        //    intent.putExtra(key, value); //keys should be public final static
         startActivity(intent);
     }
 

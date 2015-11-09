@@ -12,8 +12,10 @@
         android:layout_centerInParent="true"
 
         android:clickable="true"
+        android:background="@drawable/plus_sign"
 
         android:id="@+id/addEntry_button"
-        android:onClick="startEntry" />
+        android:onClick="startEntry"
+        android:baselineAlignBottom="true" />
 
 </RelativeLayout>

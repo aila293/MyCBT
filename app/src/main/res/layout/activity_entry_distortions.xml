@@ -7,19 +7,26 @@
     android:orientation="vertical"
     tools:context="com.liuk.mycbt.EntryDistortionsActivity">
 
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/imageButton3"
+        android:src="@android:drawable/ic_menu_info_details"
+        android:layout_marginLeft="5dp"
+        android:layout_gravity="right" />
+
     <TextView android:text=""
         android:layout_width="fill_parent"
         android:id="@+id/prev_description"
-        android:layout_height="wrap_content"
-        />
+        android:layout_height="100dp"
+        android:nestedScrollingEnabled="true" />
 
     <TextView android:text="What distortions do you see in these thoughts?"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:textSize="20dp"
-        />
+        android:textSize="20dp" />
 
-    <ListView
+    <ExpandableListView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/distortion_list"
@@ -32,6 +39,6 @@
         android:text="Done"
         android:id="@+id/to_home"
         android:layout_gravity="right"
-        android:layout_weight=".1" />
+        android:onClick="endPage"/>
 
 </LinearLayout>
