@@ -18,7 +18,7 @@
     <TextView android:text=""
         android:layout_width="fill_parent"
         android:id="@+id/prev_description"
-        android:layout_height="100dp"
+        android:layout_height="wrap_content"
         android:nestedScrollingEnabled="true" />
 
     <TextView android:text="What distortions do you see in these thoughts?"

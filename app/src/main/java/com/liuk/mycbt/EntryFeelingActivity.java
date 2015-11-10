@@ -4,7 +4,9 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.Editable;
 import android.text.Layout;
+import android.text.TextWatcher;
 import android.util.Log;
 import android.view.KeyEvent;
 import android.view.Menu;
@@ -50,24 +52,11 @@ public class EntryFeelingActivity extends Activity {
 
         feelings_wall = (LinearLayout) findViewById(R.id.feeling_list);
 
-//        TextView.OnEditorActionListener exampleListener = new TextView.OnEditorActionListener(){
-//            public boolean onEditorAction(TextView exampleView, int actionId, KeyEvent event) {
-//                if (actionId == EditorInfo.IME_NULL
-//                        && event.getAction() == KeyEvent.ACTION_DOWN) {
-//
-//                    //on space/enter, convert most recent word to a tile and append to feelings_wall
-//
-//                }
-//                return true;
-//            }
-//        };
-
 
         feelings_input.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 String text = parent.getItemAtPosition(position).toString();
-                Log.i("tag", text);
                 addFeeling(text);
                 feelings_input.setText("");
             }
@@ -83,29 +72,19 @@ public class EntryFeelingActivity extends Activity {
             }
         });
 
-    }
+        feelings_input.addTextChangedListener(new TextWatcher() {
+            public void afterTextChanged(Editable s) {}
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
 
-
-    private void populateFeelings(){
-        RelativeLayout.LayoutParams f_params = new RelativeLayout.LayoutParams(
-                RelativeLayout.LayoutParams.WRAP_CONTENT, RelativeLayout.LayoutParams.WRAP_CONTENT);
-        f_params.setMargins(20, 0, 0, 0);
-
-        feelings_wall.addView(addFeeling(FEELINGS[0]), f_params);
-
-        for (int i=1;i<FEELINGS.length;i++){
-            TextView f = addFeeling(FEELINGS[i]);
-
-            f_params = new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.WRAP_CONTENT,
-                    RelativeLayout.LayoutParams.WRAP_CONTENT);
-            f_params.addRule(RelativeLayout.BELOW, i-3);
-            f_params.setMargins(20,0,0,0);
-
-            if (i%4!=0) {
-                f_params.addRule(RelativeLayout.RIGHT_OF, i);
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                if (start>=0 && s.length()>=1 && s.charAt(start) == ' '){
+                    addFeeling(s.toString());
+                    feelings_input.setText("");
+                }
             }
-            feelings_wall.addView(f, f_params);
-        }
+            }
+        );
+
 
     }
 
@@ -118,7 +97,7 @@ public class EntryFeelingActivity extends Activity {
         f.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //allow deletion
+                feelings_wall.removeView(v);
             }
         });
 
@@ -138,11 +117,6 @@ public class EntryFeelingActivity extends Activity {
         //generateFeeling with the string
         LinearLayout t = (LinearLayout) findViewById(R.id.new_feeling_section);
         t.setVisibility(View.VISIBLE);
-
-       // t.requestFocus();
-//        InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
-//        imm.showSoftInput(t, InputMethodManager.SHOW_IMPLICIT);
-
 
         if(feelings_input.requestFocus()) {
             InputMethodManager imm = (InputMethodManager)
