@@ -17,9 +17,10 @@
     <ImageButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/imageButton"
+        android:id="@+id/infobutton"
         android:src="@android:drawable/ic_menu_info_details"
         android:layout_marginLeft="5dp"
+        android:onClick = "showInfo"
         android:layout_gravity="right" />
 
     <LinearLayout

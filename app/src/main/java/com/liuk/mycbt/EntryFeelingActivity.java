@@ -1,6 +1,8 @@
 package com.liuk.mycbt;
 
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.app.DialogFragment;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
@@ -22,6 +24,7 @@ import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -39,6 +42,7 @@ public class EntryFeelingActivity extends Activity {
             "Worthless", "Nervous", "Overjoyed", "Excited", "Proud",
             "Panicked", "Angry", "Frustrated", "Neutral"};
     private AutoCompleteTextView feelings_input;
+    private ImageButton info_button;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -73,19 +77,22 @@ public class EntryFeelingActivity extends Activity {
         });
 
         feelings_input.addTextChangedListener(new TextWatcher() {
-            public void afterTextChanged(Editable s) {}
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
+                                                  public void afterTextChanged(Editable s) {
+                                                  }
 
-            public void onTextChanged(CharSequence s, int start, int before, int count) {
-                if (start>=0 && s.length()>=1 && s.charAt(start) == ' '){
-                    addFeeling(s.toString());
-                    feelings_input.setText("");
-                }
-            }
-            }
+                                                  public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+                                                  }
+
+                                                  public void onTextChanged(CharSequence s, int start, int before, int count) {
+                                                      if (start >= 0 && s.length() >= 1 && s.charAt(start) == ' ') {
+                                                          addFeeling(s.toString());
+                                                          feelings_input.setText("");
+                                                      }
+                                                  }
+                                              }
         );
 
-
+        info_button = (ImageButton) findViewById(R.id.infobutton);
     }
 
     private TextView addFeeling(String feeling){
@@ -130,8 +137,17 @@ public class EntryFeelingActivity extends Activity {
         // save list of selected feelings, insert to database
         // save new / custom feeling if exists, insert to database
 
-        Intent next = new Intent(this, EntryDescriptionActivity.class);
-        startActivity(next);
+        startActivity(new Intent(this, EntryDescriptionActivity.class));
+    }
+
+    public void showInfo(View v){
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+
+        builder.setMessage("Explanation")
+                .setTitle("Help");
+
+        AlertDialog dialog = builder.create();
+
     }
 
 

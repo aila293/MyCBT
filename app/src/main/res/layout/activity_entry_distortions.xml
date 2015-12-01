@@ -19,7 +19,8 @@
         android:layout_width="fill_parent"
         android:id="@+id/prev_description"
         android:layout_height="wrap_content"
-        android:nestedScrollingEnabled="true" />
+        android:nestedScrollingEnabled="true"
+        android:textSize="20dp" />
 
     <TextView android:text="What distortions do you see in these thoughts?"
         android:layout_width="fill_parent"
@@ -31,7 +32,8 @@
         android:layout_height="wrap_content"
         android:id="@+id/distortion_list"
         android:layout_gravity="center_horizontal"
-        android:layout_weight=".9" />
+        android:nestedScrollingEnabled="true"
+        android:layout_weight=".6" />
 
     <Button
         android:layout_width="wrap_content"
